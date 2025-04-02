@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../ico/favicon.ico">
+  <title>Announcing Stable Virtual Camera</title>
+  <style>
+    body {
+      font-family: Lora, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: auto;
+      padding: 2em;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    
+    h1 {
+      color: #222;
+    }
+
+    p::first-letter {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-left: 1.5em;
+    }
+
+    em {
+      color: #666;
+    }
+
+    strong {
+      font-family: 'Merriweather', serif;
+    }
+  </style>
+</head>
+<body>
+  <div style="display: flex; justify-content: space-between; align-items: center; color: #888; font-size: 0.9em; margin-bottom: 1em;">
+    <a href="index.html" style="color: #555; text-decoration: none;">← Go back</a>
+    <div>March 18, 2025</div>
+  </div>
+
+  <h2>Hi there,</h2>
+  
+  <p>I am elated that Stable Virtual Camera FINALLY gets to meet you. Please note, this initial release is a non-commercial research preview and far from product-ready. So be prepared for limitations, artifacts, and imperfections in its current output. Nevertheless, we still got to assemble a gallery of cool results. We had the most fun curating results, collaging them together, and editing a video montage (someone called it cheesy, but I quite like it). If you haven't checked out the video yet, go watch it. As such, we hope Seva can serve as a creative tool for the general community.</p>
+
+  <p>I would like to first thank my co-developer, Hang, for helping pivot the project to a better position in so many implicit and explicit ways, for designing the coolest tooling and demo for the model, for resonating with me on the creative side of things. Without him, I wouldn’t be nearly as happy with where the project stands today. I would like to thank Vikram, Aaryaman, Chunhan, Mark, Philip, and Christian for being always helpful and giving the best support ever. I would like to thank Varun for his strong backbone and shield for the project from day one. I would like to thank the entire Stability research team—the most dynamic and “flat” team I have ever interacted with—unlike any of my previous research experiences. Along with the best people, I feel called to work hard, not only for myself, but also for the team.</p>
+
+  <p>Usually, a release note ends here, but I think it’s just fun to share a bit more—the twists and turns, the unexpected, the darkest, the personal, and the lessons learned from every step, and misstep. Part of me deems it obnoxiously self-important and unnecessarily sentimental to be open about the development experience of a modestly performing, limited-scale model. Yet another part is screaming that I shall be unashamedly proud about my craft, and thus the making of it. I have released many models and projects now, and I have no idea how many more times I get to do this, so I want to do it differently this time.</p>
+
+  <p>This project was one heck of a ride and certainly not an easy one. I joined Stability last May, being entirely new to NVS and training diffusion models. I created this log upon starting this project. Here are some highlights:</p>
+
+  <ul>
+    <li>1st May: I implemented the Plücker embeddings and trained the first vanilla baseline on the <em>***</em> dataset. Hooray!</li>
+    <li>26th May: Hang joined the project.</li>
+    <li>4th July: I finally figured out why previous runs on some datasets are prone to fail - they are with NANed camera poses!!!!</li>
+    <li>8th July: I briefly talked through the idea of unifying the objective with <em>***</em>, and we decided to converge to a more generalist model. (We spent two months looking into this part that does not finally incorporate it into the current version of the model.)</li>
+    <li>12th August: We finally get some quantitative numbers on the <em>***</em> benchmark, comparable to other NVS baselines.</li>
+  </ul>
+
+  <p>Reflecting on these moments, I feel alive, fulfilled, proud and unbothered. I have always enjoyed my craftsmanship in building things from the ground up. When my pace did not match up with people’s expectations, I rarely worried that my procrastination might ruin my career. I hereby occupy my niche.</p>
+
+  <p>There exist several darkest moments. Halfway through the project, Hang and I were extremely anxious about the model’s underperforming despite months of effort. We were staring at the computer, completely silent, and wondering what the hell went wrong, how to make it work with our limited resources, and if it's time to move on. I am glad we didn’t.</p>
+
+  <p>They say life is about moments. I am a total sucker for that. It is these seemingly small yet retrospectively pivotal moments that define the project, the model, and myself as a developer.</p>
+
+  <p>I used to think doing research is the most uncertain part of life. Sometimes things work out of the box in weeks. Sometimes I would spend half a year on things that eventually end up nowhere. I’ve recently learned that real uncertainties can unfold themselves in countless other ways—working within constraints, navigating accidents, accepting imperfections, negotiating with people, calibrating to unreciprocated feelings, and coming to terms with outcomes beyond my control. These are uncertainties life shoved to me, and I need to force myself to get on board with them. Combat. I am ready for combat.</p>
+
+  <p>Thank you for taking the time to read my note this far. I can’t wait to show you what happens next.</p>
+
+  <h3>Best,<br>Jensen</h3>
+</body>
+</html>

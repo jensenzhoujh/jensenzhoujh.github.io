@@ -1,5 +1,5 @@
 body {
-	font-family: Georgia, serif;
+	font-family: Lora, serif;
 	font-size: 15.5px;
 }
 
@@ -194,4 +194,8 @@ img.resized {
 .right {
     flex: 1;
     text-align: right;
+}
+
+strong {
+    font-family: 'Merriweather', serif;
 }
