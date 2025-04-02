@@ -19,10 +19,11 @@ div#toptitle h1 {
 
 h1 {
 	font-size: 165%;
+    font-family: 'Merriweather', serif;
 }
 
 h3 {	
-	/* color: #527bbd; */
+	font-family: 'Merriweather', serif;
 	border-bottom: 1px solid #aaaaaa;
 }
 
