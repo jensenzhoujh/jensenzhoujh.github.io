@@ -39,25 +39,24 @@
     });
   }
 
-  const publications = document.getElementById('publications');
-  function showPublications() {
+  function sectionForHash(hash) {
+    return sections.find(section => '#' + section.id === hash);
+  }
+
+  function showSection(section) {
     if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
-    publications.focus({preventScroll: true});
-    publications.scrollIntoView();
-    activate(publications.id);
+    section.focus({preventScroll: true});
+    section.scrollIntoView();
+    activate(section.id);
   }
 
   for (const link of links) {
     link.addEventListener('click', event => {
       if (!link.hash || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      if (link.hash === '#publications' && publications) {
-        event.preventDefault();
-        showPublications();
-        return;
-      }
-      const target = document.getElementById(link.hash.slice(1));
-      const section = target?.closest('#publications, #experiences');
-      if (section) activate(section.id);
+      const section = sectionForHash(link.hash);
+      if (!section) return;
+      event.preventDefault();
+      showSection(section);
     });
   }
   window.addEventListener('scroll', scheduleUpdate, {passive: true});
@@ -65,6 +64,7 @@
   window.addEventListener('hashchange', scheduleUpdate);
   window.addEventListener('load', scheduleUpdate);
   document.fonts?.ready.then(scheduleUpdate);
-  if (location.hash === '#publications' && publications) showPublications();
+  const initialSection = sectionForHash(location.hash);
+  if (initialSection) showSection(initialSection);
   updateSelection();
 })();
