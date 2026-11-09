@@ -78,7 +78,8 @@ a:hover > span[aria-hidden] { transform: translate(2px, -2px); }
 /* Publication images remain uncropped, with clear author and resource hierarchy. */
 .publications { border-top: 1px solid var(--line); }
 .publication { display: grid; grid-template-columns: 272px minmax(0, 1fr); gap: 36px; padding: 28px 16px; border-bottom: 1px solid var(--line); align-items: center; }
-.publication-image { display: grid; place-items: center; background: transparent; border: 0; border-radius: 0; padding: 0; aspect-ratio: 1.6; overflow: hidden; }
+.publication-image { display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center; background: transparent; border: 0; border-radius: 0; padding: 0; aspect-ratio: 1.6; overflow: hidden; }
+.publication-image > picture { width: 100%; height: 100%; }
 .publication-image img, .publication-image video { width: 100%; height: 100%; object-fit: contain; transition: transform 220ms ease; }
 .publication-image img { mix-blend-mode: multiply; }
 .publication-preview img { mix-blend-mode: normal; }
