@@ -39,9 +39,22 @@
     });
   }
 
+  const publications = document.getElementById('publications');
+  function showPublications() {
+    if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+    publications.focus({preventScroll: true});
+    publications.scrollIntoView();
+    activate(publications.id);
+  }
+
   for (const link of links) {
     link.addEventListener('click', event => {
       if (!link.hash || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (link.hash === '#publications' && publications) {
+        event.preventDefault();
+        showPublications();
+        return;
+      }
       const target = document.getElementById(link.hash.slice(1));
       const section = target?.closest('#publications, #experiences');
       if (section) activate(section.id);
@@ -52,5 +65,6 @@
   window.addEventListener('hashchange', scheduleUpdate);
   window.addEventListener('load', scheduleUpdate);
   document.fonts?.ready.then(scheduleUpdate);
+  if (location.hash === '#publications' && publications) showPublications();
   updateSelection();
 })();
