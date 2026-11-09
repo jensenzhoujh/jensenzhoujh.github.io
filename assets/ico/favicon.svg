@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <title>Abstract aperture</title>
+  <g fill="none" stroke="#245aa6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9.5"/>
+    <path d="m14.3 8 5.4 9.35M9.7 8h10.8M7.4 12l5.4-9.35M9.7 16 4.3 6.65M14.3 16H3.5M16.6 12l-5.4 9.35"/>
+  </g>
+</svg>
