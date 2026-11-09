@@ -1,4 +1,5 @@
 _site
 .idea
+/.vscode/
 .DS_Store
 index_local.html
