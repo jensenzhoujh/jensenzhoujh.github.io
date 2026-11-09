@@ -4,6 +4,8 @@
   const sections = ['publications', 'experiences'].map(id => document.getElementById(id)).filter(Boolean);
   if (!sections.length) return;
   const links = [...document.querySelectorAll('.site-header nav a')];
+  const jumpLinks = [...links, ...document.querySelectorAll('.news-list a[href^="#"]')];
+  const jumpTargets = [...sections, ...document.querySelectorAll('.publication[id]')];
   let selectedId;
   let pendingFrame = false;
 
@@ -39,24 +41,24 @@
     });
   }
 
-  function sectionForHash(hash) {
-    return sections.find(section => '#' + section.id === hash);
+  function targetForHash(hash) {
+    return jumpTargets.find(target => '#' + target.id === hash);
   }
 
-  function showSection(section) {
+  function showTarget(target) {
     if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
-    section.focus({preventScroll: true});
-    section.scrollIntoView();
-    activate(section.id);
+    target.focus({preventScroll: true});
+    target.scrollIntoView();
+    activate(sections.find(section => section.contains(target))?.id);
   }
 
-  for (const link of links) {
+  for (const link of jumpLinks) {
     link.addEventListener('click', event => {
       if (!link.hash || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      const section = sectionForHash(link.hash);
-      if (!section) return;
+      const target = targetForHash(link.hash);
+      if (!target) return;
       event.preventDefault();
-      showSection(section);
+      showTarget(target);
     });
   }
   window.addEventListener('scroll', scheduleUpdate, {passive: true});
@@ -64,7 +66,7 @@
   window.addEventListener('hashchange', scheduleUpdate);
   window.addEventListener('load', scheduleUpdate);
   document.fonts?.ready.then(scheduleUpdate);
-  const initialSection = sectionForHash(location.hash);
-  if (initialSection) showSection(initialSection);
+  const initialTarget = targetForHash(location.hash);
+  if (initialTarget) showTarget(initialTarget);
   updateSelection();
 })();
