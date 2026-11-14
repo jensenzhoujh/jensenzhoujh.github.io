@@ -90,6 +90,32 @@ a:hover > span[aria-hidden] { transform: translate(2px, -2px); }
 .publication-meta .featured-label::before { content: none; }
 .publication h3 { margin: 0 0 10px; font-size: calc(18px * var(--type-scale, 1)); line-height: 1.45; letter-spacing: -.025em; font-weight: 500; }
 .publication h3 a { text-decoration: none; }
+
+@keyframes avm-title-colors {
+  from { background-position: 100% 50%; }
+  to { background-position: 0% 50%; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  @supports ((background-clip: text) or (-webkit-background-clip: text)) {
+    .avm-title-link {
+      display: inline-block;
+      max-width: 100%;
+      padding: .18em .04em;
+      margin: -.18em -.04em;
+    }
+    .avm-title-link:hover {
+      background-image: repeating-linear-gradient(90deg, var(--ink) 0%, #4f83ad 4%, #d78343 10%, var(--ink) 16%, var(--ink) 50%);
+      background-size: 200% 100%;
+      background-position: 100% 50%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      animation: avm-title-colors 1.35s linear infinite;
+    }
+    .avm-title-link::selection { -webkit-text-fill-color: #fff; }
+  }
+}
 .authors { color: var(--muted); font-size: calc(13px * var(--type-scale, 1)); line-height: 1.8; max-width: 690px; }
 .authors strong { color: #3a3a3a; font-weight: 500; }
 .publication-links { display: flex; flex-wrap: wrap; gap: 5px 17px; margin-top: 13px; font-size: calc(12px * var(--type-scale, 1)); font-weight: 500; }
