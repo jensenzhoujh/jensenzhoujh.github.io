@@ -66,6 +66,19 @@
   window.addEventListener('hashchange', scheduleUpdate);
   window.addEventListener('load', scheduleUpdate);
   document.fonts?.ready.then(scheduleUpdate);
+  const projects = document.getElementById('projects-list');
+  const projectToggle = document.querySelector('.project-toggle');
+  const projectToggleLabel = projectToggle?.querySelector('.project-toggle-label');
+  if (projects && projectToggleLabel) {
+    projects.setAttribute('data-featured-only', '');
+    projectToggle.hidden = false;
+    projectToggle.addEventListener('click', () => {
+      const collapsed = projects.toggleAttribute('data-featured-only');
+      projectToggle.setAttribute('aria-expanded', String(!collapsed));
+      projectToggleLabel.textContent = collapsed ? 'Expand all' : 'Show featured only';
+      scheduleUpdate();
+    });
+  }
   const initialTarget = targetForHash(location.hash);
   if (initialTarget) showTarget(initialTarget);
   updateSelection();
